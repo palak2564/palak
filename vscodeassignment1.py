@@ -1,50 +1,30 @@
-def prit(n, isPrime):
+def printsuperprimes(n, isPrime):
     isPrime[0] = isPrime[1] = False
-    for i in range(2,n):
-        isPdef prit(n, isPrime):
-isPrime[0] = isPrime[1] = False
-for i in range(2,n):
-isPrime[i] = True
-for p in range(2,n+1):
-if (p*p<=n and isPrime[p] == True):
-for i in range(p*2,n+1,p):
-isPrime[i] = False
-p += 1
-def superPrimes(n):
-isPrime = [1 for i in range(n+1)]
-prit(n, isPrime)
-primes = [0 for i in range(2,n+1)]
-j = 0
-for p in range(2,n+1):
-if(isPrime[p]):
-primes[j] = p
-j += 1
-for k in range(j):
-if(isPrime[k+1]):
-print (primes[k],end=" ")
-n = 241
-print ("\nSuper-Primes less than or equal to ", n, " are :",)
-superPrimes(n)
-rime[i] = True
-        for p in range(2,n+1):
-            if (p*p<=n and isPrime[p] == True):
-                for i in range(p*2,n+1,p):
-                    isPrime[i] = False
-                    p += 1
+    p = 2
+    while p * p <= n:
+        if isPrime[p]:
+            for i in range(p * 2, n + 1, p):
+                isPrime[i] = False
+        p += 1
 
 def superPrimes(n):
-    isPrime = [1 for i in range(n+1)]
-    print(n, isPrime)
-    primes = [0 for i in range(2,n+1)]
+    isPrime = [True] * (n + 1)
+    sieve_of_eratosthenes(n, isPrime)
+    
+    primes = []
     j = 0
-    for p in range(2,n+1):
-        if(isPrime[p]):
-            primes[j] = p
+    for p in range(2, n + 1):
+        if isPrime[p]:
+            primes.append(p)
             j += 1
-            for k in range(j):
-                if(isPrime[k+1]):
-                    print (primes[k],end=" ")
+    
+    super_primes = []
+    for k in range(j):
+        if isPrime[k + 1]:
+            super_primes.append(primes[k])
+
+    return super_primes
 
 n = 241
-print ("\nSuper-Primes less than or equal to ", n, " are :",)
-superPrimes(n)
+super_primes_list = superPrimes(n)
+print("Super-Primes less than or equal to", n, "are:", super_primes_list)
