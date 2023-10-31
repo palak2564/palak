@@ -1,6 +1,7 @@
 import pdb 
 import random
 import math
+import cProfile
 
 def maingame():
     pdb.set_trace()
@@ -394,3 +395,6 @@ def maingame():
         pdb.set_trace()
 
 maingame()
+
+profiler = pstats.Stats('profile_results.pstats')
+profiler.strip_dirs().sort_stats('cumulative').print_stats()
