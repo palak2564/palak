@@ -1,6 +1,9 @@
+import pdb 
 import random
 import math
+
 def maingame():
+    pdb.set_trace()
     print("PYTHON MINI GAMES")
     print("Which game would you like to play?")
     print("1. Random Number Guess")
@@ -38,6 +41,8 @@ def maingame():
         if no_of_attempts == 6:
             print("Oops! You lost!")
             print(f"The number was: {number_to_guess}")
+        
+        pdb.set_trace()
 
     elif choice == 2:
         
@@ -84,8 +89,7 @@ def maingame():
 
             current_player = players[1] if current_player == players[0] else players[0]
 
-
-
+        pdb.set_trace()
 
     elif choice == 3:
         print("HANGMAN")
@@ -200,7 +204,8 @@ def maingame():
 
         if "_" in display_word:
             print("Out of attempts. The word was: {}".format(word_to_guess))
-
+        pdb.set_trace()
+    
     elif choice == 4:
         print("ROCK PAPER SCISSORS")
         possible_choices = ["rock", "paper", "scissors"]
@@ -245,7 +250,8 @@ def maingame():
         dice_numbers = int(input("Enter the number of faces on your dice:"))
         random_choice = random.randint(1, dice_numbers)
         print("Your random choice is: {}".format(random_choice))
-
+        pdb.set_trace()
+        
     elif choice == 6:
         def arithmetic_sequence(start, diff, length):
             return [start + diff * i for i in range(length)]
@@ -385,6 +391,6 @@ def maingame():
     else:
         print("\n")
         maingame()
-    
+        pdb.set_trace()
 
 maingame()
